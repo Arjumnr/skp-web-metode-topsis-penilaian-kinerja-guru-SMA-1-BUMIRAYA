@@ -9,7 +9,7 @@
         <nav>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="index.html">Admin</a></li>
-                <li class="breadcrumb-item active">Data Kriteria</li>
+                <li class="breadcrumb-item active">Data Guru</li>
             </ol>
         </nav>
     </div>
@@ -20,8 +20,11 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Kode</th>
-                            <th>Pertanyaan</th>
+                            <th>NIP</th>
+                            <th>Nama Guru</th>
+                            <th>Jenis Kelamin</th>
+                            <th>No Telp</th>
+                            <th>Foto</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -31,5 +34,5 @@
         </div>
     </section>
 
-    @include('admin.kriteria.form')
+    @include('admin.guru.form')
 @endsection
