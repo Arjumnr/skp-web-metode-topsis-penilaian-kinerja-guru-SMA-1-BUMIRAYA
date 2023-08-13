@@ -17,18 +17,18 @@ class RespondenController extends Controller
         if ($request->ajax()) {
             return DataTables::of($data)
                 ->addIndexColumn()
-                ->addColumn('action', function ($row) {
+                // ->addColumn('action', function ($row) {
 
-                    $btn = '<a href="javascript:void(0)" data-toggle="tooltip" data-id="' . $row->id . '" data-original-title="Edit" class="edit "> <button type="button" class="btn rounded-pill btn-icon btn-primary">
-                        <span class="tf-icons bx bx-message-square-edit"></span>
-                      </button></a>';
-                    $btn = $btn . ' <button type="button" class="btn rounded-pill btn-icon btn-danger">
-                    <span class="tf-icons bx bx-trash-alt"></span>
-                  </button>';
-                    //     return $btn;
-                    return $btn;
-                })
-                ->rawColumns(['action'])
+                //     $btn = '<a href="javascript:void(0)" data-toggle="tooltip" data-id="' . $row->id . '" data-original-title="Edit" class="edit "> <button type="button" class="btn rounded-pill btn-icon btn-primary">
+                //         <span class="tf-icons bx bx-message-square-edit"></span>
+                //       </button></a>';
+                //     $btn = $btn . ' <button type="button" class="btn rounded-pill btn-icon btn-danger">
+                //     <span class="tf-icons bx bx-trash-alt"></span>
+                //   </button>';
+                //     //     return $btn;
+                //     return $btn;
+                // })
+                // ->rawColumns(['action'])
                 ->make(true);
         }
         
@@ -56,14 +56,21 @@ class RespondenController extends Controller
                     'guru_id' => $guruId,
                     'kriteria_id' => $kriteriaId,
                     'bobot' => $value,
+                    'created_at' => date('Y-m-d H:i:s'),
                 ];
             }
            
         }
 
-        responden::insert($penilaians);
+        $simpan = responden::insert($penilaians);
+        if($simpan){
+            return redirect()->route('index')->with('success', 'Data berhasil ditambahkan');
 
-        return redirect()->route('index')->with('success', 'Data berhasil ditambahkan');
+        }
+        else{
+            return response()->json('error', 'Data gagal ditambahkan');
+        }
+
 
         
         

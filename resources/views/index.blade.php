@@ -75,36 +75,45 @@
                 <div class="col-xl">
                     <div class="card mb-4">
                         <div class="card-header d-flex justify-content-between align-items-center">
+                            <div class="app-brand d-flex justify-content-center align-items-center">
+                                <img src="{{ asset('sneat-1.0.0/assets/img/logo.jpeg') }}" width="10%"
+                                    alt="Brand Logo" class="img-fluid" />
+                            </div>
                         </div>
                         <div class="col-md-12 ">
                             <h4 class="d-flex justify-content-center">System Penilaian Kinerja Guru SMAN 1 BUMIRAYA</h4>
 
-                            <form action="/store" method="POST">
+                            <form action="/store" method="POST" id="myForm">
                                 @csrf
                                 <div class="card-body">
                                     {{-- selec option --}}
                                     <div class="mb-3 ">
                                         <select id="largeSelect" class="form-select form-select-lg"
-                                            aria-label="Default select example" name="guru_id">
-                                            <option disabled selected>--- Pilih Guru ---</option>
+                                            aria-label="Default select example" name="guru_id" required>
+                                            <option value="" disabled selected>--- Pilih Guru ---</option>
                                             @foreach ($dataGuru as $item)
                                                 <option value="{{ $item['id'] }}">{{ $item['nama_guru'] }}</option>
                                             @endforeach
                                         </select>
                                     </div>
+                                    {{-- <div id="validationMessage" style="display: none; color: red;">
+                                        Harap pilih semua opsi sebelum mengirimkan formulir.
+                                    </div> --}}
                                     @foreach ($data as $item)
                                         <div class="mb-3 ">
-                                            <div class="d-flex justify-content-center align-items-center">
+                                            <div class="d-flex justify-content-center align-items-center "
+                                                style="text-align:center;">
                                                 <label for="exampleFormControlInput1" value="{{ $item['id'] }}"
-                                                    name="kriteria_id"
-                                                    class="form-label fs-5 text-capitalize">{{ $item['pertanyaan'] }}</label>
+                                                    name="kriteria_id" class="form-label fs-5 text-capitalize"
+                                                    required>{{ $item['pertanyaan'] }}</label>
                                             </div>
+
                                             <br>
                                             <div class="d-flex justify-content-center align-items-center">
                                                 <div class="form-check form-check-inline mb-3">
                                                     <input name="radio_{{ $item['id'] }}" class="form-check-input"
                                                         type="radio" value="5"
-                                                        id="radio_{{ $item['id'] }}_option1">
+                                                        id="radio_{{ $item['id'] }}_option1" required>
                                                     <label class="form-check-label"
                                                         for="radio_{{ $item['id'] }}_option1">Sangat Baik</label>
                                                 </div>
@@ -187,6 +196,31 @@
 
 
         @stack('scripts')
+
+        {{-- <script>
+            document.getElementById('myForm').addEventListener('submit', function(event) {
+                var radioGroups = document.querySelectorAll('[name^="radio_"]');
+                var isAnyGroupIncomplete = false;
+
+                radioGroups.forEach(function(group) {
+                    if (!isChecked(group)) {
+                        isAnyGroupIncomplete = true;
+                    }
+                });
+
+                if (isAnyGroupIncomplete) {
+                    event.preventDefault();
+                    // document.getElementById('validationMessage').style.display = 'block';
+                }
+            });
+
+            function isChecked(group) {
+                var radios = group.querySelectorAll('input[type="radio"]');
+                return Array.from(radios).some(function(radio) {
+                    return radio.checked;
+                });
+            }
+        </script> --}}
 
 </body>
 

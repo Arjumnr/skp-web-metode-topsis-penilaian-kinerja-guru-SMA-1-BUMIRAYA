@@ -6,6 +6,7 @@ use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\KriteriaController;
 use App\Http\Controllers\admin\RespondenController;
 use App\Http\Controllers\admin\GuruController;
+use App\Http\Controllers\admin\TopsisController;
 use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\IndexController;
 use Illuminate\Support\Facades\Auth;
@@ -29,10 +30,10 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         // Route::get('/data', [KriteriaController::class, 'data'])->name('kriteria.data');
 
         // Route::get('/create', [KriteriaController::class, 'create'])->name('kriteria.create');
-        // Route::post('/store', [KriteriaController::class, 'store'])->name('kriteria.store');
-        Route::get('/edit/{id}', [KriteriaController::class, 'edit'])->name('kriteria.edit');
+        Route::post('/store', [KriteriaController::class, 'store'])->name('kriteria.store');
+        Route::get('/{id}/edit', [KriteriaController::class, 'edit'])->name('kriteria.edit');
         // Route::post('/update/{id}', [KriteriaController::class, 'update'])->name('kriteria.update');
-        Route::get('/delete/{id}', [KriteriaController::class, 'destroy'])->name('kriteria.delete');
+        Route::delete('/store/{id}', [KriteriaController::class, 'destroy'])->name('kriteria.delete');
     });
 
     // route group guru
@@ -40,10 +41,10 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::get('/', [GuruController::class, 'index'])->name('guru');
 
         // Route::get('/create', [GuruController::class, 'create'])->name('guru.create');
-        // Route::post('/store', [GuruController::class, 'store'])->name('guru.store');
-        Route::get('/edit/{id}', [GuruController::class, 'edit'])->name('guru.edit');
+        Route::post('/store', [GuruController::class, 'store'])->name('guru.store');
+        Route::get('/{id}/edit', [GuruController::class, 'edit'])->name('guru.edit');
         // Route::post('/update/{id}', [GuruController::class, 'update'])->name('guru.update');
-        Route::get('/delete/{id}', [GuruController::class, 'destroy'])->name('guru.delete');
+        Route::delete('/store/{id}', [GuruController::class, 'destroy'])->name('guru.delete');
     });
 
     // route group responden
@@ -53,6 +54,14 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::get('/edit/{id}', [RespondenController::class, 'edit'])->name('responden.edit');
         // Route::post('/update/{id}', [RespondenController::class, 'update'])->name('responden.update');
         Route::get('/delete/{id}', [RespondenController::class, 'destroy'])->name('responden.delete');
+    });
+
+    Route::prefix('topsis')->group(function () {
+        Route::get('/', [TopsisController::class, 'index'])->name('topsis');
+        // Route::get('/create', [TopsisController::class, 'create'])->name('responden.create');
+        Route::get('/edit/{id}', [TopsisController::class, 'edit'])->name('topsis.edit');
+        // Route::post('/update/{id}', [TopsisController::class, 'update'])->name('responden.update');
+        Route::get('/delete/{id}', [TopsisController::class, 'destroy'])->name('topsis.delete');
     });
 
     // route group user

@@ -30,7 +30,7 @@
                                         <i class="bi bi-person"></i>
                                     </div>
                                     <div class="ps-3">
-                                        <span class="text-muted small pt-2 ps-1">Mekanik</span>
+                                        <h4>{{ $jumlahKriteria }}</h4>
                                     </div>
                                 </div>
                             </div>
@@ -48,7 +48,7 @@
                                         <i class="bi bi-person"></i>
                                     </div>
                                     <div class="ps-3">
-                                        <span class="text-muted small pt-2 ps-1">Mekanik</span>
+                                        <h4>{{ $jumlahGuru }}</h4>
                                     </div>
                                 </div>
                             </div>

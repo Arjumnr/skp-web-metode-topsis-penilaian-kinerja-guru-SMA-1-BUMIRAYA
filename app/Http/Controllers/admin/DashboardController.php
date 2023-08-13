@@ -11,6 +11,8 @@ class DashboardController extends Controller
     public function index()
     {
         $title  = 'Dashboard';
-        return view('admin.index', compact('title'));
+        $jumlahGuru = \App\Models\guru::count();
+        $jumlahKriteria = \App\Models\kriteria::count();
+        return view('admin.index', compact('title', 'jumlahGuru', 'jumlahKriteria'));
     }
 }

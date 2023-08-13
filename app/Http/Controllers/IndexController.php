@@ -12,6 +12,7 @@ class IndexController extends Controller
     {
         $data = kriteria::all();
         $dataGuru = guru::all();
+    
         // return response()->json($data);
         return view('index', compact('data', 'dataGuru'));
     }

@@ -8,11 +8,13 @@
 
     <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
         <!-- Search -->
-        <div class="nav-item d-flex align-items-center">
+        <div class="nav-item d-flex align-items-center justify-content-center">
+            <h4>SPK-Guru SMAN 1 Bumi Raya</h4>
         </div>
         <!-- /Search -->
 
         <ul class="navbar-nav flex-row align-items-center ms-auto">
+            <h4>Admin</h4>
             <!-- Place this tag where you want the button to render. -->
             {{-- <li class="nav-item lh-1 me-3">
                 <a class="github-button" href="https://github.com/themeselection/sneat-html-admin-template-free"
@@ -39,7 +41,6 @@
                                     </div>
                                 </div>
                                 <div class="flex-grow-1">
-                                    <span class="fw-semibold d-block">John Doe</span>
                                     <small class="text-muted">Admin</small>
                                 </div>
                             </div>

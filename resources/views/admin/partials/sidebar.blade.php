@@ -1,7 +1,13 @@
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
     <div class="app-brand demo">
         <a href="index.html" class="app-brand-link">
-            <span class="app-brand-logo demo">
+            <div class="app-brand d-flex justify-content-center align-items-center">
+                <img src="{{ asset('sneat-1.0.0/assets/img/logo.jpeg') }}" width="30%" alt="Brand Logo"
+                    class="img-fluid" />
+            </div>
+            <!-- /Logo -->
+            {{-- <h4 class="mb-2 d-flex justify-content-center">SPK-Guru || SMAN 1 BUMIRAYA</h4> --}}
+            {{-- <span class="app-brand-logo demo">
                 <svg width="25" viewBox="0 0 25 42" version="1.1" xmlns="http://www.w3.org/2000/svg"
                     xmlns:xlink="http://www.w3.org/1999/xlink">
                     <defs>
@@ -44,8 +50,8 @@
                         </g>
                     </g>
                 </svg>
-            </span>
-            <span class="app-brand-text demo menu-text fw-bolder ms-2">Sneat</span>
+            </span> --}}
+            {{-- <span class="app-brand-text demo menu-text fw-bolder ms-2">Sneat</span> --}}
         </a>
 
         <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
@@ -79,6 +85,12 @@
             <a href="{{ route('responden') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx  bx-table"></i>
                 <div data-i18n="Analytics">Data Responden</div>
+            </a>
+        </li>
+        <li class="menu-item @stack('Topsis')">
+            <a href="{{ route('topsis') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx  bx-table"></i>
+                <div data-i18n="Analytics">Metode Topsis</div>
             </a>
         </li>
         {{-- <li class="menu-item @stack('kriteria')">
