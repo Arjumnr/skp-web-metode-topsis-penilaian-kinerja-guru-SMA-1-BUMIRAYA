@@ -8,12 +8,19 @@ use Illuminate\Http\Request;
 
 class IndexController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $data = kriteria::all();
-        $dataGuru = guru::all();
-    
-        // return response()->json($data);
-        return view('index', compact('data', 'dataGuru'));
+        $cek = $request->session()->has('nim');
+        if ($cek) {
+
+            $data = kriteria::all();
+            $dataGuru = guru::all();
+        
+            // return response()->json($data);
+            return view('index', compact('data', 'dataGuru')); 
+        } else {
+            return view('admin.login_siswa');
+        }
+       
     }
 }

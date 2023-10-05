@@ -12,7 +12,9 @@ class DashboardController extends Controller
     {
         $title  = 'Dashboard';
         $jumlahGuru = \App\Models\guru::count();
+        
+        $jumlahResponden = \App\Models\responden::count();
         $jumlahKriteria = \App\Models\kriteria::count();
-        return view('admin.index', compact('title', 'jumlahGuru', 'jumlahKriteria'));
+        return view('admin.index', compact('title', 'jumlahGuru', 'jumlahKriteria', 'jumlahResponden'));
     }
 }

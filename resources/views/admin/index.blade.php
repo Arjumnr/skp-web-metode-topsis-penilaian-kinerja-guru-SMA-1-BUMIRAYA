@@ -57,6 +57,26 @@
                 </div>
             </div>
         </div>
+        <br>
+        <div class="row">
+            <div class="col-12 col-lg-8 order-2 order-md-3 order-lg-2 mb-4">
+                <div class="card">
+                    <div class="row row-bordered g-0">
+                        <div class="col-md-12">
+                            <h5 class="card-header m-0 me-2 pb-3">Grafik Penilaian</h5>
+                            <div id="totalRevenueChart" class="px-2"></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
         </div>
+        <script>
+            //buat grafik penilaian
+            // const totalRevenueChart = document.getElementById('totalRevenueChart').getContext('2d');
+
+            
+        </script>
+
     </section>
 @endsection

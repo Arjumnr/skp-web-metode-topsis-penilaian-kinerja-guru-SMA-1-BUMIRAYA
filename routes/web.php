@@ -6,6 +6,7 @@ use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\KriteriaController;
 use App\Http\Controllers\admin\RespondenController;
 use App\Http\Controllers\admin\GuruController;
+use App\Http\Controllers\admin\SiswaController;
 use App\Http\Controllers\admin\TopsisController;
 use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\IndexController;
@@ -47,6 +48,17 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::delete('/store/{id}', [GuruController::class, 'destroy'])->name('guru.delete');
     });
 
+    // route group siswa
+    Route::prefix('siswa')->group(function () {
+        Route::get('/', [SiswaController::class, 'index'])->name('siswa');
+
+        // Route::get('/create', [SiswaController::class, 'create'])->name('siswa.create');
+        Route::post('/store', [SiswaController::class, 'store'])->name('siswa.store');
+        Route::get('/{id}/edit', [SiswaController::class, 'edit'])->name('siswa.edit');
+        // Route::post('/update/{id}', [SiswaController::class, 'update'])->name('siswa.update');
+        Route::delete('/store/{id}', [SiswaController::class, 'destroy'])->name('siswa.delete');
+    });
+
     // route group responden
     Route::prefix('responden')->group(function () {
         Route::get('/', [RespondenController::class, 'index'])->name('responden');
@@ -80,14 +92,14 @@ Route::prefix('admin')->middleware('auth')->group(function () {
 
 
     //logout 
-    Route::get('/logout', function () {
-        Auth::logout();
-        return redirect()->route('login');
-    })->name('logout');
+    Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+
 });
 Route::get('/', [IndexController::class, 'index'])->name('index');
 Route::get('/auth', [AuthController::class, 'index'])->name('login');
+Route::get('/authSiswa', [AuthController::class, 'indexSiswa'])->name('loginSiswa');
 Route::post('/auth/login', [AuthController::class, 'authLogin'])->name('authLogin');
+Route::post('/auth/loginSiswa', [AuthController::class, 'authLoginSiswa'])->name('authLoginSiswa');
 Route::post('/store', [RespondenController::class, 'store'])->name('storeResponden');
 
 

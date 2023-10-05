@@ -83,7 +83,7 @@
                         <div class="col-md-12 ">
                             <h4 class="d-flex justify-content-center">System Penilaian Kinerja Guru SMAN 1 BUMIRAYA</h4>
 
-                            <form action="/store" method="POST" id="myForm">
+                            <form action="" method="POST" id="myForm">
                                 @csrf
                                 <div class="card-body">
                                     {{-- selec option --}}

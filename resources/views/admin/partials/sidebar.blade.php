@@ -75,6 +75,12 @@
                 <div data-i18n="Analytics">Data Kriteria</div>
             </a>
         </li>
+        <li class="menu-item @stack('Siswa')">
+            <a href="{{ route('siswa') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx  bx-table"></i>
+                <div data-i18n="Analytics">Data Siswa</div>
+            </a>
+        </li>
         <li class="menu-item @stack('Guru')">
             <a href="{{ route('guru') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx  bx-table"></i>
