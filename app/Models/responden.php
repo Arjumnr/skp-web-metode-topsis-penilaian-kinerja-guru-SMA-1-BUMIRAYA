@@ -10,6 +10,7 @@ class responden extends Model
     use HasFactory;
     protected $table = 'responden';
     protected $fillable = [
+        'siswa_nim',
         'guru_id',
         'kriteria_id', 
         'bobot'

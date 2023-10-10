@@ -83,8 +83,10 @@
                         <div class="col-md-12 ">
                             <h4 class="d-flex justify-content-center">System Penilaian Kinerja Guru SMAN 1 BUMIRAYA</h4>
 
-                            <form action="" method="POST" id="myForm">
+                            <form action="/store" method="POST" id="myForm">
                                 @csrf
+                                {{-- siswa_nim --}}
+                                <input type="hidden" name="siswa_nim" id="siswa_nim" value="{{ session('nim') }}">
                                 <div class="card-body">
                                     {{-- selec option --}}
                                     <div class="mb-3 ">

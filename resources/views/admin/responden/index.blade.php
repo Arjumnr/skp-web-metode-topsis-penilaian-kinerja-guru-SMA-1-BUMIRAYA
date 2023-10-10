@@ -20,6 +20,7 @@
                     <thead>
                         <tr>
                             <th>No</th>
+                            <th>Nim</th>
                             <th>Guru</th>
                             <th>Kriteria</th>
                             <th>Bobot</th>

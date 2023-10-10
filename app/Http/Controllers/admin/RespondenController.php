@@ -12,7 +12,7 @@ class RespondenController extends Controller
     public function index(Request $request)
     {
         $title  = 'Responden';
-        $data = responden::all();
+        $data = responden::orderBy('id', 'desc')->get();
 
         if ($request->ajax()) {
             return DataTables::of($data)
@@ -42,6 +42,7 @@ class RespondenController extends Controller
 
         // Extract and remove guru_id from the data array
         $guruId = $data['guru_id'];
+        $siswa_nim = $data['siswa_nim'];
         $kriteriaId = '';
         $bobot = '';
         unset($data['guru_id']);
@@ -53,6 +54,7 @@ class RespondenController extends Controller
 
             if ($value == intval($value)){
                 $penilaians[] = [
+                    'siswa_nim' => $siswa_nim,
                     'guru_id' => $guruId,
                     'kriteria_id' => $kriteriaId,
                     'bobot' => $value,
@@ -68,7 +70,7 @@ class RespondenController extends Controller
 
         }
         else{
-            return response()->json('error', 'Data gagal ditambahkan');
+            return redirect()->route('index')->with('error', 'Data gagal ditambahkan');
         }
 
 

@@ -10,6 +10,10 @@
                         name: 'DT_RowIndex'
                     },
                     {
+                        data: 'siswa_nim',
+                        name: 'siswa_nim'
+                    },
+                    {
                         data: 'guru_id',
                         name: 'guru_id'
                     },
